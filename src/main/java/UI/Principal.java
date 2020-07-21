@@ -16,14 +16,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Principal extends javax.swing.JFrame {
 
-    private static final String ALTERNATIVA_A = "Alternativa A";
-    private static final String ALTERNATIVA_B = "Alternativa B";
 
-    private Object[] filaAnterior = new Object[14];
-    private Object[] filaNueva = new Object[14];
+    private Object[] filaAnterior = new Object[15];
+    private Object[] filaNueva = new Object[15];
     private Integer dia;
 
-    public final Integer[] probTipos = new Integer[2];
+    private final Integer[] probTipos = new Integer[2];
 
     public Principal() {
         initComponents();
@@ -64,6 +62,8 @@ public class Principal extends javax.swing.JFrame {
         utilidadSin2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         principal = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tb_solicitantesA = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -306,7 +306,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(utilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(utilidadSin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,7 +318,7 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Dia (cantidad)", "Evento", "RND Tipo", "Tipo Trabajo", "RND Demora", "Dia Demora", "Dia Finaliza", "Prensa [1]", "Estado [1]", "Prensa [2]", "Estado [2]", "Acum Tipo 1", "Acum Tipo 2", "Acum ($)"
+                "Dia (cantidad)", "RND Tipo", "Tipo Trabajo", "Evento", "RND Demora", "Dia Demora", "Pren. Estado [1]", "Pren. Dia Finaliza[1]", "Atend Tipo Trab [1]", "Pren. Estado [2]", "Pren. Dia Finaliza[2]", "Atend Tipo Trab [2]", "Acum Tipo 1", "Acum Tipo 2", "Acum ($)"
             }
         ));
         principal.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -328,14 +328,25 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(principal);
 
+        tb_solicitantesA.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Reloj"
+            }
+        ));
+        tb_solicitantesA.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane5.setViewportView(tb_solicitantesA);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -343,8 +354,10 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 222, Short.MAX_VALUE))
+                    .addComponent(jScrollPane5))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,14 +365,15 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btn_Simular))
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_Simular))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -373,17 +387,19 @@ public class Principal extends javax.swing.JFrame {
         Integer hasta = Integer.parseInt(this.hastaDia.getText());
         Double utilidad1 = Double.parseDouble(this.probabilidades.getValueAt(0, 4).toString());
         Double utilidad2 = Double.parseDouble(this.probabilidades.getValueAt(1, 4).toString());
+        Integer demoraDesde = Integer.parseInt(this.demoraDesde.getText());
+        Integer demoraHasta = Integer.parseInt(this.demoraHasta.getText());
         llenarProbabilidades();
         inicializarFila();
 
-        Simular simular = new Simular(utilidad1,utilidad2);
+        Simular simular = new Simular(utilidad1,utilidad2,this.probTipos,this.descartar2.isSelected(),demoraDesde,demoraHasta);
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) this.principal.getModel();
         modelo.setRowCount(0);
 
         while (this.dia <= totalDias) {
-            this.filaNueva = simular.simular(this.filaAnterior);
+            this.filaNueva = simular.simular(this.filaAnterior,this.dia);
 
             if (this.dia >= desde && this.dia <= hasta) {
                 modelo.addRow(this.filaNueva);
@@ -395,18 +411,11 @@ public class Principal extends javax.swing.JFrame {
         this.utilidad.setText("");
         this.utilidadSin2.setText("");
         if (this.descartar2.isSelected()) {
-            this.utilidadSin2.setText(((Integer) this.filaNueva[13]).toString());
+            this.utilidadSin2.setText(((Double) this.filaNueva[14]).toString());
         } else {
-            this.utilidad.setText(((Integer) this.filaNueva[13]).toString());
+            this.utilidad.setText(((Double) this.filaNueva[14]).toString());
         }
 
-//        if (this.cb_alternativas.getSelectedItem().equals(Principal.ALTERNATIVA_A)) {
-//            simularAlternativaA(mediaPoissonLlegada, mediaExpLlenarForm,
-//                    unifAtencionA, unifAtencionB, tiempoSimular, desde, hasta);
-//        } else {
-//            simularAlternativaB(mediaPoissonLlegada, mediaExpAtencionB, tiempoSimular,
-//                    desde, hasta);
-//        }
 
     }//GEN-LAST:event_btn_SimularActionPerformed
 
@@ -449,19 +458,20 @@ public class Principal extends javax.swing.JFrame {
 
     private void inicializarFila() {
         this.filaAnterior[0] = 0; // dia
-        this.filaAnterior[1] = "-"; //Evento
-        this.filaAnterior[2] = "-"; //RND Tipo
-        this.filaAnterior[3] = "-";//Tipo Trabajo
+        this.filaAnterior[1] = "-"; //RND Tipo
+        this.filaAnterior[2] = "-";//Tipo Trabajo
+        this.filaAnterior[3] = "-"; //Evento
         this.filaAnterior[4] = "-"; //RND Demora
         this.filaAnterior[5] = "-"; // Dia Demora
-        this.filaAnterior[6] = "-"; // Dia Finaliza
-        this.filaAnterior[7] = "-"; // Prensa 1
-        this.filaAnterior[8] = "LIBRE"; //Estado
-        this.filaAnterior[9] = "-";//Fin Atencion;
-        this.filaAnterior[10] = "LIBRE"; // Estado
-        this.filaAnterior[11] = 0;//Fin Atencion;
-        this.filaAnterior[12] = 0; // Estado
-        this.filaAnterior[13] = 0.0f;//Fin Atencion;
+        this.filaAnterior[6] = "LIBRE"; //Estado
+        this.filaAnterior[7] = 0; // Dia Finaliza
+        this.filaAnterior[8] = "-"; //Atendiendo Tipo
+        this.filaAnterior[9] = "LIBRE"; // Estado
+        this.filaAnterior[10] = "-"; // Dia Finaliza
+        this.filaAnterior[11] = "-"; //Atendiendo Tipo
+        this.filaAnterior[12] = 0;//Acum Tipo 1;
+        this.filaAnterior[13] = 0; //Acum Tipo 2;
+        this.filaAnterior[14] = (double) 0.0;//Acum Total;
 
     }
 
@@ -471,65 +481,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
-//    private void crearColumnasClientesA(SimularA simular, DefaultTableModel modelo2) {
-//
-//        modelo2 = (DefaultTableModel) this.tb_solicitantesA.getModel();
-//        Integer cantidad = simular.obtenerSolicitantes().size();
-//        for (int i = 0; i < cantidad; i++) {
-//            if (!estaClienteEnColumna(modelo2, simular.obtenerSolicitantes().get(i))) {
-//                Integer n = simular.obtenerSolicitantes().get(i).getNumero();
-//                modelo2.addColumn("Estado [" + n + "]");
-//                modelo2.addColumn("Hora Llegada [" + n + "]");
-//                modelo2.addColumn("Hora Salida [" + n + "]");
-//            }
-//
-//        }
-//        this.tb_solicitantesA.setModel(modelo2);
-    //}
-
-//    private boolean estaClienteEnColumna(DefaultTableModel modelo2, Solicitante solicitante) {
-//        for (int i = 1; i < modelo2.getColumnCount(); i += 3) {
-//            String nombreColumna = modelo2.getColumnName(i);
-//            Integer nroSolicitante = obtenerNumeroSolicitanteColumna(nombreColumna);
-//            if (solicitante.getNumero().equals(nroSolicitante)) {
-//                return true;
-//            }
-//
-//        }
-//        return false;
-//    }
-//
-//    private void llenarFilaSolicitantesA(SimularA simular, DefaultTableModel modelo2) {
-//        ArrayList<Solicitante> solicitantes = simular.obtenerSolicitantes();
-//        modelo2 = (DefaultTableModel) this.tb_solicitantesA.getModel();
-//        Object[] filaClientes = new Object[modelo2.getColumnCount()];
-//        filaClientes[0] = this.reloj;
-//        for (int i = 1; i < modelo2.getColumnCount(); i += 3) {
-//            String nombreColumna = modelo2.getColumnName(i);
-//            Integer numeroCliente = obtenerNumeroSolicitanteColumna(nombreColumna);
-//            for (int j = 0; j < solicitantes.size(); j++) {
-//                if (solicitantes.get(j).getNumero().equals(numeroCliente)) {
-//                    filaClientes[i] = solicitantes.get(j).getEstado();
-//                    filaClientes[i + 1] = solicitantes.get(j).getHoraLlegada();
-//                    if (solicitantes.get(j).getEstado().equals(Estado.FUERA_SISTEMA)) {
-//                        filaClientes[i + 2] = solicitantes.get(j).getHoraSalida();
-//                    }
-//                }
-//            }
-//        }
-//        modelo2.addRow(filaClientes);
-//        this.tb_solicitantesA.setModel(modelo2);
-//    }
-//
-//    private Integer obtenerNumeroSolicitanteColumna(String nombreColumna) {
-//        String numero = "";
-//        for (int i = 0; i < nombreColumna.length(); i++) {
-//            if (Character.isDigit(nombreColumna.charAt(i))) {
-//                numero = numero.concat(nombreColumna.substring(i, i + 1));
-//            }
-//        }
-//        return Integer.parseInt(numero);
-//    }
 
     /**
      * @param args the command line arguments
@@ -588,93 +539,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable principal;
     private javax.swing.JTable probabilidades;
+    private javax.swing.JTable tb_solicitantesA;
     private javax.swing.JTextField totalSemana;
     private javax.swing.JTextField utilidad;
     private javax.swing.JTextField utilidadSin2;
     // End of variables declaration//GEN-END:variables
 
-//    private void simularAlternativaA(Double mediaPoissonLlegada, Double mediaExpLlenarForm,
-//            Integer unifAtencionA, Integer unifAtencionB, Double tiempoSimular, Float desde, Float hasta) {
-//        this.inicioA.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
-//
-//        this.finA.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
-//
-//    }
-//
-//    private void simularAlternativaB(Double mediaPoissonLlegada, Double mediaAtencion,
-//            Double tiempoSimular, Float desde, Float hasta) {
-//
-//        this.inicioB.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
-//
-//        SimularB simular = new SimularB(mediaPoissonLlegada, mediaAtencion);
-//        inicializarFilaB();
-//
-//        DefaultTableModel modelo = new DefaultTableModel();
-//        modelo = (DefaultTableModel) this.principalB.getModel();
-//        modelo.setRowCount(0);
-//        DefaultTableModel modeloCliente = new DefaultTableModel();
-//        modeloCliente = (DefaultTableModel) this.tb_solicitantesB.getModel();
-//        modeloCliente.setRowCount(0);
-//        modeloCliente.setColumnCount(1);
-//        modelo.addRow(this.filaAnteriorB);
-//        while (this.reloj <= tiempoSimular) {
-//            this.filaNuevaB = simular.simularB(this.filaAnteriorB);
-//            this.reloj = (Float) this.filaNuevaB[0];
-//
-//            if (this.reloj >= desde && this.reloj <= hasta) {
-//                modelo.addRow(this.filaNuevaB);
-//                crearColumnasClientesB(simular, modeloCliente);
-//                llenarFilaSolicitantesB(simular, modeloCliente);
-//            }
-//
-//            setearFilaAnterior(this.filaAnteriorB, this.filaNuevaB);
-//        }
-//
-//        this.tx_atendidosB.setText(((Integer) this.filaNuevaB[15]).toString());
-//        this.tx_promedioB.setText("" + ((Float) this.filaNuevaB[16] / (Integer) this.filaNuevaB[15]));
-//
-//        this.finB.setText(new SimpleDateFormat("HH:mm:ss").format(new Date()));
-//    }
-//
-//    private void crearColumnasClientesB(SimularB simular, DefaultTableModel modelo2) {
-//
-//        modelo2 = (DefaultTableModel) this.tb_solicitantesB.getModel();
-//        Integer cantidad = simular.obtenerSolicitantes().size();
-//        for (int i = 0; i < cantidad; i++) {
-//            if (!estaClienteEnColumna(modelo2, simular.obtenerSolicitantes().get(i))) {
-//                Integer n = simular.obtenerSolicitantes().get(i).getNumero();
-//                modelo2.addColumn("Estado [" + n + "]");
-//                modelo2.addColumn("Hora Llegada [" + n + "]");
-//                modelo2.addColumn("Hora Salida [" + n + "]");
-//            }
-//
-//        }
-//        this.tb_solicitantesB.setModel(modelo2);
-//    }
-//
-//    private void llenarFilaSolicitantesB(SimularB simular, DefaultTableModel modelo2) {
-//        ArrayList<Solicitante> solicitantes = simular.obtenerSolicitantes();
-//        modelo2 = (DefaultTableModel) this.tb_solicitantesB.getModel();
-//        Object[] filaClientes = new Object[modelo2.getColumnCount()];
-//        filaClientes[0] = this.reloj;
-//        for (int i = 1; i < modelo2.getColumnCount(); i += 3) {
-//            String nombreColumna = modelo2.getColumnName(i);
-//            Integer numeroCliente = obtenerNumeroSolicitanteColumna(nombreColumna);
-//            for (int j = 0; j < solicitantes.size(); j++) {
-//                if (solicitantes.get(j).getNumero().equals(numeroCliente)) {
-//                    filaClientes[i] = solicitantes.get(j).getEstado();
-//                    filaClientes[i + 1] = solicitantes.get(j).getHoraLlegada();
-//                    if (solicitantes.get(j).getEstado().equals(Estado.FUERA_SISTEMA)) {
-//                        filaClientes[i + 2] = solicitantes.get(j).getHoraSalida();
-//                    }
-//                }
-//            }
-//        }
-//        modelo2.addRow(filaClientes);
-//        this.tb_solicitantesB.setModel(modelo2);
-//    }
 
     private void llenarProbabilidades() {
         this.probTipos[0] = Integer.parseInt(this.probabilidades.getValueAt(0, 3).toString());

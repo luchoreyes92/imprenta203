@@ -25,8 +25,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel2" max="32767" attributes="0"/>
@@ -36,9 +36,11 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="222" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,17 +50,17 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPanel1" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_Simular" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jPanel3" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btn_Simular" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jPanel3" pref="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="265" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="479" max="32767" attributes="0"/>
+              <Component id="jScrollPane5" min="-2" pref="207" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -434,7 +436,7 @@
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="utilidad" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="utilidadSin2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -483,18 +485,19 @@
         <Component class="javax.swing.JTable" name="principal">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="14" rowCount="0">
+              <Table columnCount="15" rowCount="0">
                 <Column editable="true" title="Dia (cantidad)" type="java.lang.Object"/>
-                <Column editable="true" title="Evento" type="java.lang.Object"/>
                 <Column editable="true" title="RND Tipo" type="java.lang.Object"/>
                 <Column editable="true" title="Tipo Trabajo" type="java.lang.Object"/>
+                <Column editable="true" title="Evento" type="java.lang.Object"/>
                 <Column editable="true" title="RND Demora" type="java.lang.Object"/>
                 <Column editable="true" title="Dia Demora" type="java.lang.Object"/>
-                <Column editable="true" title="Dia Finaliza" type="java.lang.Object"/>
-                <Column editable="true" title="Prensa [1]" type="java.lang.Object"/>
-                <Column editable="true" title="Estado [1]" type="java.lang.Object"/>
-                <Column editable="true" title="Prensa [2]" type="java.lang.Object"/>
-                <Column editable="true" title="Estado [2]" type="java.lang.Object"/>
+                <Column editable="true" title="Pren. Estado [1]" type="java.lang.Object"/>
+                <Column editable="true" title="Pren. Dia Finaliza[1]" type="java.lang.Object"/>
+                <Column editable="true" title="Atend Tipo Trab [1]" type="java.lang.Object"/>
+                <Column editable="true" title="Pren. Estado [2]" type="java.lang.Object"/>
+                <Column editable="true" title="Pren. Dia Finaliza[2]" type="java.lang.Object"/>
+                <Column editable="true" title="Atend Tipo Trab [2]" type="java.lang.Object"/>
                 <Column editable="true" title="Acum Tipo 1" type="java.lang.Object"/>
                 <Column editable="true" title="Acum Tipo 2" type="java.lang.Object"/>
                 <Column editable="true" title="Acum ($)" type="java.lang.Object"/>
@@ -504,6 +507,25 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalMouseClicked"/>
           </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tb_solicitantesA">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="1" rowCount="0">
+                <Column editable="true" title="Reloj" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="autoResizeMode" type="int" value="0"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
