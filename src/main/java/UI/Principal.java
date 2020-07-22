@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +17,6 @@ import javax.swing.table.DefaultTableModel;
  * @author Lucho
  */
 public class Principal extends javax.swing.JFrame {
-
 
     private Object[] filaAnterior = new Object[15];
     private Object[] filaNueva = new Object[15];
@@ -60,10 +61,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         utilidadSin2 = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        conclusion = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         principal = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tb_solicitantesA = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +96,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Hasta Día:");
 
-        hastaDia.setText("100");
+        hastaDia.setText("700");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -209,7 +211,7 @@ public class Principal extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false, false, true
+                false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -282,35 +284,57 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Conclusión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+
+        conclusion.setEditable(false);
+        conclusion.setColumns(20);
+        conclusion.setRows(5);
+        conclusion.setAutoscrolls(false);
+        conclusion.setFocusable(false);
+        jScrollPane2.setViewportView(conclusion);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(19, 19, 19)
-                        .addComponent(utilidadSin2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(utilidad)))
-                .addContainerGap(163, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(utilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(utilidadSin2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(utilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(utilidadSin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
+                .addGap(53, 53, 53))
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         principal.setModel(new javax.swing.table.DefaultTableModel(
@@ -328,17 +352,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(principal);
 
-        tb_solicitantesA.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Reloj"
-            }
-        ));
-        tb_solicitantesA.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane5.setViewportView(tb_solicitantesA);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -354,9 +367,7 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 222, Short.MAX_VALUE))
-                    .addComponent(jScrollPane5))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -369,11 +380,9 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_Simular))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -392,28 +401,43 @@ public class Principal extends javax.swing.JFrame {
         llenarProbabilidades();
         inicializarFila();
 
-        Simular simular = new Simular(utilidad1,utilidad2,this.probTipos,this.descartar2.isSelected(),demoraDesde,demoraHasta);
+        Simular simular = new Simular(utilidad1, utilidad2, this.probTipos, this.descartar2.isSelected(), demoraDesde, demoraHasta);
 
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo = (DefaultTableModel) this.principal.getModel();
-        modelo.setRowCount(0);
+        if (validaParametros(hasta, desde, totalDias)) {
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo = (DefaultTableModel) this.principal.getModel();
+            modelo.setRowCount(0);
 
-        while (this.dia <= totalDias) {
-            this.filaNueva = simular.simular(this.filaAnterior,this.dia);
+            while (this.dia <= totalDias) {
+                this.filaNueva = simular.simular(this.filaAnterior, this.dia);
 
-            if (this.dia >= desde && this.dia <= hasta) {
-                modelo.addRow(this.filaNueva);
+                if (this.dia >= desde && this.dia <= hasta) {
+                    modelo.addRow(this.filaNueva);
+                }
+                if (Objects.equals(this.dia, totalDias) && this.dia > hasta) {
+                    modelo.addRow(filaNueva);
+                }
+
+                setearFilaAnterior(this.filaAnterior, this.filaNueva);
+                this.dia++;
             }
-            setearFilaAnterior(this.filaAnterior, this.filaNueva);
-            this.dia++;
-        }
 
-        this.utilidad.setText("");
-        this.utilidadSin2.setText("");
-        if (this.descartar2.isSelected()) {
-            this.utilidadSin2.setText(((Double) this.filaNueva[14]).toString());
-        } else {
-            this.utilidad.setText(((Double) this.filaNueva[14]).toString());
+            if (this.descartar2.isSelected()) {
+                this.utilidadSin2.setText(((Double) this.filaNueva[14]).toString());
+            } else {
+                this.utilidad.setText(((Double) this.filaNueva[14]).toString());
+            }
+            
+            if(!this.utilidad.getText().equals("") && !this.utilidadSin2.getText().equals("")){
+                Double utilidadCon2 = Double.parseDouble(this.utilidad.getText());
+                Double utilidadSin2 = Double.parseDouble(this.utilidadSin2.getText());
+                this.conclusion.setText("En esta simulación para " + totalDias + " días,\n podemos concluir que si"
+                        + " no se aceptan\n trabajos del tipo 2, la utilidad varía\n"
+                        + " con respecto a cuando si son aceptados,\n"
+                        + "en un total de: $" + (utilidadCon2-utilidadSin2));
+            }
+            
+            
         }
 
 
@@ -452,9 +476,73 @@ public class Principal extends javax.swing.JFrame {
             this.probabilidades.setValueAt(0, 1, 3);
             this.probabilidades.setValueAt(0, 1, 4);
         }
+        if (!this.descartar2.isSelected()) {
+            inicializarTablaTrabajos();
+        }
 
 
     }//GEN-LAST:event_descartar2StateChanged
+
+    private boolean validaParametros(Integer hasta, Integer desde, Integer totalDias) {
+        if (hasta < desde || hasta > totalDias) {
+            JOptionPane.showMessageDialog(null, "La variable 'Hasta día' no posee un valor válido.");
+            return false;
+        }
+        if (desde < 0) {
+            JOptionPane.showMessageDialog(null, "La variable 'Desde día' no posee un valor válido.");
+            return false;
+        }
+
+        Integer interInf1 = Integer.parseInt(this.probabilidades.getValueAt(0, 2).toString());
+        Integer interSup1 = Integer.parseInt(this.probabilidades.getValueAt(0, 3).toString());
+        Integer interInf2 = Integer.parseInt(this.probabilidades.getValueAt(1, 2).toString());
+        Integer interSup2 = Integer.parseInt(this.probabilidades.getValueAt(1, 3).toString());
+        Integer interInfNT = Integer.parseInt(this.probabilidades.getValueAt(2, 2).toString());
+        Integer interSupNT = Integer.parseInt(this.probabilidades.getValueAt(2, 3).toString());
+
+        if (this.descartar2.isSelected()) {
+            Double prob1 = Double.parseDouble(this.probabilidades.getValueAt(0, 1).toString());
+            Double probNT = Double.parseDouble(this.probabilidades.getValueAt(2, 1).toString());
+            if ((prob1 + probNT) != 1.0) {
+                JOptionPane.showMessageDialog(null, "Las probabilidades de los tipos de trabajo no poseen un valor válido.");
+                return false;
+            }
+            if (((interInfNT - 1) != interSup1)) {
+                JOptionPane.showMessageDialog(null, "Los intervalos de los tipos de trabajo no poseen un valor válido.");
+                return false;
+            }
+
+            Integer cantidad = (interSup1 - interInf1 + 1)  + (interSupNT - interInfNT + 1);
+            if (cantidad != 100) {
+                JOptionPane.showMessageDialog(null, "Los intervalos de los tipos de trabajo no poseen un valor válido.");
+                return false;
+            }
+
+        }
+        if (!this.descartar2.isSelected()) {
+            Double prob1 = Double.parseDouble(this.probabilidades.getValueAt(0, 1).toString());
+            Double prob2 = Double.parseDouble(this.probabilidades.getValueAt(1, 1).toString());
+            Double probNT = Double.parseDouble(this.probabilidades.getValueAt(2, 1).toString());
+            if ((prob1 + prob2 + probNT) != 1.0) {
+                JOptionPane.showMessageDialog(null, "Las probabilidades de los tipos de trabajo no poseen un valor válido.");
+                return false;
+            }
+
+            if (((interInf2 - 1) != interSup1) || ((interInfNT - 1) != interSup2)) {
+                JOptionPane.showMessageDialog(null, "Los intervalos de los tipos de trabajo no poseen un valor válido.");
+                return false;
+            }
+
+            Integer cantidad = (interSup1 - interInf1 + 1)+ (interSup2 - interInf2 + 1) + (interSupNT - interInfNT + 1);
+            
+            if (cantidad != 100) {
+                JOptionPane.showMessageDialog(null, "Los intervalos de los tipos de trabajo no poseen un valor válido.");
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     private void inicializarFila() {
         this.filaAnterior[0] = 0; // dia
@@ -475,12 +563,27 @@ public class Principal extends javax.swing.JFrame {
 
     }
 
+    private void inicializarTablaTrabajos() {
+        this.probabilidades.setValueAt(0.5, 0, 1);
+        this.probabilidades.setValueAt(0, 0, 2);
+        this.probabilidades.setValueAt(49, 0, 3);
+        this.probabilidades.setValueAt(400, 0, 4);
+
+        this.probabilidades.setValueAt(0.2, 1, 1);
+        this.probabilidades.setValueAt(50, 1, 2);
+        this.probabilidades.setValueAt(69, 1, 3);
+        this.probabilidades.setValueAt(200, 1, 4);
+
+        this.probabilidades.setValueAt(0.3, 2, 1);
+        this.probabilidades.setValueAt(70, 2, 2);
+        this.probabilidades.setValueAt(99, 2, 3);
+    }
+
     private void setearFilaAnterior(Object[] filaAnterior, Object[] filaNueva) {
         for (int i = 0; i < filaAnterior.length; i++) {
             filaAnterior[i] = filaNueva[i];
         }
     }
-
 
     /**
      * @param args the command line arguments
@@ -520,6 +623,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Simular;
+    private javax.swing.JTextArea conclusion;
     private javax.swing.JTextField demoraDesde;
     private javax.swing.JTextField demoraHasta;
     private javax.swing.JCheckBox descartar2;
@@ -536,18 +640,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable principal;
     private javax.swing.JTable probabilidades;
-    private javax.swing.JTable tb_solicitantesA;
     private javax.swing.JTextField totalSemana;
     private javax.swing.JTextField utilidad;
     private javax.swing.JTextField utilidadSin2;
     // End of variables declaration//GEN-END:variables
-
 
     private void llenarProbabilidades() {
         this.probTipos[0] = Integer.parseInt(this.probabilidades.getValueAt(0, 3).toString());
